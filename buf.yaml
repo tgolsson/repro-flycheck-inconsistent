@@ -1,0 +1,16 @@
+version: v1
+breaking:
+  use:
+    - WIRE
+    - WIRE_JSON
+    - PACKAGE
+lint:
+    use:
+        - DEFAULT
+    except:
+      -
+    ignore_only:
+      PACKAGE_LOWER_SNAKE_CASE:
+      - MyPackage/common.proto
+      PACKAGE_VERSION_SUFFIX:
+      - MyPackage/common.proto
