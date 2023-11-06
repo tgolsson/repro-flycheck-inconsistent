@@ -28,7 +28,7 @@ Which are the issues being ignored by `buf.yaml`.
 
 This is the checker definition:
 
-``` shell
+``` emacs-lisp
 (flycheck-def-config-file-var buf-buf-yaml buf '("buf.yaml"))
 
 (flycheck-define-checker buf
