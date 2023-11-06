@@ -2,7 +2,7 @@ This is a reproduction of an issue with flycheck where it reports inconsistent r
 
 Using latest `buf` from here: https://github.com/bufbuild/buf/releases/tag/v1.27.2
 
-Running `flycheck-compile` generates the following output:
+Running `flycheck-compile` generates the following output, which matches running in a shell:
 
 ``` shell
 -*- mode: compilation; default-directory: "~/Repositories/flycheck-buf-repro/" -*-
@@ -13,6 +13,9 @@ Compilation started at Mon Nov  6 15:59:06
 Compilation finished at Mon Nov  6 15:59:06, duration 0.04 s
 ```
 
+Removing one of the config options makes the above fail with the expected output , so it's
+definitely using the configuration file and running correctly.
+
 Whereas having the buffer open generates the following output:
 
 ``` shell
@@ -20,6 +23,8 @@ Whereas having the buffer open generates the following output:
  common.proto     3   1 error           Package name "MyPackage" should be lower_snake.case, such as "my_package". (buf)
  common.proto     3   1 error           Package name "MyPackage" should be suffixed with a correctly formed version, such as "MyPackage.v1". (buf)
 ```
+
+Which are the issues being ignored by `buf.yaml`.
 
 This is the checker definition:
 
